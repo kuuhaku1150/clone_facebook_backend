@@ -8,6 +8,9 @@ const postFacebookSchema = new mongoose.Schema(
     ownerPost: {
       type: String,
     },
+    img: {
+      type: String,
+    },
     comments: [
       {
         userComment: {
@@ -20,9 +23,20 @@ const postFacebookSchema = new mongoose.Schema(
         },
       },
     ],
-    like: {
-      type: Boolean,
-    },
+
+    likes: [
+      {
+        userLike: {
+          like: {
+            type: Boolean,
+            default: false,
+          },
+          idUserLike: {
+            type: String,
+          },
+        },
+      },
+    ],
   },
   {
     timestamps: true,
